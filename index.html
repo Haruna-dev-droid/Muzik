@@ -3,13 +3,246 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MUZIK</title>
+    <title>SoundWave - Official Website</title>
     <link href="/src/output.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
       html {
         .no-scrollbar::-webkit-scrollbar {
           display: none; /* Chrome, Safari, Opera */
+        }
+      }
+
+      /* Tablet screens (≤768px) */
+      @media (max-width: 768px) {
+        body {
+          margin: 0 1rem;
+        }
+
+        header .flex,
+        section .flex,
+        footer .flex {
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        p,
+        a,
+        li {
+          font-size: 0.9rem;
+        }
+
+        .text-5xl {
+          font-size: 2rem;
+        }
+
+        .text-4xl {
+          font-size: 1.5rem;
+        }
+
+        /* .w {
+          width: 100% !important;
+          margin-left: 0 !important;
+        } */
+
+        .w-md {
+          width: 100% !important;
+        }
+
+        iframe {
+          height: 200px !important;
+        }
+      }
+
+      /* Mobile phones (≤480px) */
+      @media (max-width: 480px) {
+        body {
+          margin: 0 5px;
+        }
+
+        header .flex,
+        section .flex,
+        footer .flex {
+          gap: 0.5rem;
+        }
+
+        section {
+          margin: 0 10px;
+        }
+
+        #logo-SoundWave {
+          display: inline;
+          margin: 0 2px;
+          padding: 0;
+        }
+        #nav-links {
+          display: none;
+        }
+
+        #Artists {
+          display: flex;
+          flex-direction: row;
+          gap: 10px;
+          overflow-x: auto;
+          scroll-snap-type: none;
+
+          /* overflow-x: hidden; */
+        }
+        #Artist1,
+        #Artist2,
+        #Artist3 {
+          scroll-snap-align: start;
+          /* width: 80%; */
+        }
+
+        #Artists-info {
+          display: flex;
+          flex-direction: row;
+        }
+
+        #Artist-swipe {
+          display: flex;
+          flex-direction: row;
+        }
+        #Listen-on {
+          display: flex;
+          flex-direction: column;
+          text-align: center;
+          gap: 10px;
+          margin-top: 30px;
+        }
+        #Listen-on-text {
+          font-size: large;
+          font-weight: 600;
+        }
+        #News {
+          margin-top: 5rem;
+          margin-bottom: 10px;
+          margin-left: 2px;
+          margin-right: 2px;
+        }
+
+        .btns {
+          display: none;
+        }
+
+        #News-highlights {
+          display: flex;
+          flex-direction: row;
+          gap: 10px;
+          overflow-x: auto;
+          margin: 15px 2px;
+        }
+
+        #btns-releases {
+          display: none;
+        }
+        #Releases {
+          display: flex;
+          flex-direction: row;
+          gap: 10px;
+          overflow-x: auto;
+          scroll-snap-type: none;
+          margin: 15px 2px;
+          width: 100%;
+        }
+
+        #Release1-info {
+          display: flex;
+          flex-direction: row;
+        }
+        #Release2-info {
+          display: flex;
+          flex-direction: row;
+        }
+        #Release3-info {
+          display: flex;
+          flex-direction: row;
+        }
+        #Release4-info {
+          display: flex;
+          flex-direction: row;
+        }
+        #Release-section {
+          margin-top: 2px;
+        }
+        #releases-card {
+          margin-top: -10px;
+        }
+        #Victoria {
+          text-align: center;
+        }
+        #Accra {
+          text-align: center;
+        }
+        #See-all-dates {
+          display: none;
+        }
+        #Shows {
+          margin-top: 5rem;
+        }
+        #About-stats {
+          display: flex;
+          flex-direction: row;
+          gap: 10px;
+        }
+        br {
+          display: none;
+        }
+
+        #stats {
+          width: 31%;
+        }
+        #About-img {
+          display: none;
+          object-fit: cover;
+          width: 100%;
+        }
+        #About-us {
+          margin-bottom: 2px;
+        }
+
+        #Newsletter {
+          margin-top: -3rem;
+          display: flex;
+          flex-direction: column;
+          text-align: center;
+          padding: 10px 3px;
+          width: 100%;
+        }
+        #input-space {
+          padding: 10px 30px;
+          text-align: center;
+        }
+
+        #footer {
+          text-align: center;
+          align-items: center;
+        }
+
+        #connect {
+          margin: 20px 0;
+        }
+        #contact {
+          margin: 20px 0;
+        }
+        p,
+        a,
+        li {
+          font-size: 0.8rem;
+          line-height: 1.4;
+        }
+
+        .text-5xl {
+          font-size: 1.5rem;
+        }
+
+        .text-4xl {
+          font-size: 1.2rem;
+        }
+
+        iframe {
+          height: 160px !important;
         }
       }
     </style>
@@ -34,10 +267,12 @@
     <header class="sticky top-0 z-50 bg-black/50 backdrop-blur-sm">
       <div
         class="flex justify-between items-center sticky backdrop-blur-2xl top-0 p-4 border-t border-white/5 border-b"
+        id="header"
       >
-        <a href="#" class="flex items-center gap-3">
+        <a href="#" class="flex items-center gap-3" id="logo-SoundWave">
           <span
             class="inline-flex h-9 w-9 items-center justify-center bg-blue-600 rounded-lg bg-brand-600 shadow-glow"
+            id="logo"
           >
             <svg
               class="w-6 h-5 flex"
@@ -49,18 +284,42 @@
               />
             </svg>
           </span>
-          <span class="text-2xl font-bold">SOUNDWAVE</span>
+          <span class="text-2xl font-bold" id="SoundWave">SOUNDWAVE</span>
+
+          <!-- MOBILE HAMBURGER -->
+          <span class="ml-15">
+            <button
+              class="md:hidden p-2 rounded-lg hover:bg-white/10"
+              id="mobile-open"
+              aria-label="Open Menu"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                class="h-6 w-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </button>
+          </span>
         </a>
 
         <nav>
-          <ul class="flex space-x-12">
+          <ul class="flex space-x-12" id="nav-links">
             <li><a href="#Artist" class="hover:text-brand-600">Artists</a></li>
             <li><a href="#Music" class="hover:text-brand-600">Music</a></li>
             <li><a href="#Videos" class="hover:text-brand-600">Videos</a></li>
             <li><a href="#About" class="hover:text-brand-600">About</a></li>
           </ul>
         </nav>
-        <div>
+        <div class="hidden md:flex items-center gap-3">
           <a
             href="#"
             class="bg-white p-2 rounded-full text-black text-sm hover:bg-gray-200 transition duration-300"
@@ -85,20 +344,21 @@
     <!-- Artist Section -->
     <section class="mx-7">
       <p class="mt-15 text-5xl font-bold px-1">Artists</p>
-      <div class="flex justify-between items-center px-1 mb-5">
+      <div
+        class="flex justify-between items-center px-1 mb-5"
+        id="Artist-swipe"
+      >
         <p class="text-white/80">Swipe to explore our lineup</p>
         <div>
-          <p class="text-white/70 cursor-pointer hover:text-white/90">
-            View all
-          </p>
+          <p class="text-white/70 cursor-pointer hover:text-white/90">Swipe</p>
         </div>
       </div>
 
-      <div class="flex gap-8 items-center justify-between mt-3">
+      <div class="flex gap-8 items-center justify-between mt-3" id="Artists">
         <!-- Artist 1 Nova Jay -->
         <div class="relative">
           <div class="">
-            <article class="m-w-[260px] snap-start">
+            <article class="m-w-[260px] snap-start" id="Artist1">
               <a
                 href="#NovaJay"
                 class="group block w-sm rounded-2xl overflow-hidden bg-white/5 border border-white/10 hover:border-white/30"
@@ -116,6 +376,7 @@
 
                   <div
                     class="absolute bottom-3 left-3 right-3 flex items-center justify-between"
+                    id="Artists-info"
                   >
                     <div class="">
                       <p class="font-bold">Nova Jay</p>
@@ -131,7 +392,7 @@
           </div>
         </div>
         <!-- Artist 2 Luna K -->
-        <article class="m-w-[260px] snap-start">
+        <article class="m-w-[260px] snap-start" id="Artist2">
           <a
             href="#Luna K"
             class="block group w-sm rounded-2xl overflow-hidden bg-white/5 border border-white/10 hover:border-white/30"
@@ -147,6 +408,7 @@
               ></div>
               <div
                 class="absolute bottom-3 right-3 left-3 flex items-center justify-between"
+                id="Artists-info"
               >
                 <div>
                   <p class="font-bold">Luna K</p>
@@ -161,7 +423,7 @@
         </article>
 
         <!-- Artist 3 Yung Rex -->
-        <article class="m-w[260px] snap-start">
+        <article class="m-w[260px] snap-start" id="Artist3">
           <a
             href="#YungRex"
             class="block group w-sm rounded-2xl border border-white/10 hover:border-white/30 overflow-hidden bg-white/5"
@@ -177,6 +439,7 @@
               ></div>
               <div
                 class="absolute bottom-3 left-3 right-3 flex items-center justify-between"
+                id="Artists-info"
               >
                 <div>
                   <p class="font-bold">Yung Kris</p>
@@ -193,13 +456,13 @@
     </section>
 
     <!-- Releases Section -->
-    <div class="mt-20">
+    <div class="mt-20" id="Release-section">
       <section class="mx-7">
         <div class="mb-5">
           <p class="text-5xl font-bold pt-20">Latest Releases</p>
           <div class="flex justify-between">
             <p class="text-white/80">Fresh out of the studio</p>
-            <div class="items-center">
+            <div class="items-center" id="btns-releases">
               <button
                 id="artist-prev"
                 class="p-2 rounded-full bg-white/10 hover:bg-white/20"
@@ -232,7 +495,7 @@
           </div>
         </div>
 
-        <div class="flex gap-5">
+        <div class="flex gap-5" id="releases-card">
           <div
             id="Releases"
             class="no-scrollbar flex gap-5 overflow-x-auto scroll-smooth snap-x snap-mandatory"
@@ -242,6 +505,7 @@
               <a
                 href="#"
                 class="block group w-sm rounded-2xl border border-white/10 hover:border-white/30 overflow-hidden bg-white/5"
+                id="Release1"
               >
                 <div class="relative h-100">
                   <img
@@ -250,7 +514,7 @@
                     class="w-full h-full object-cover group-hover:scale-105 transition"
                   />
                 </div>
-                <div class="flex justify-between p-3">
+                <div class="flex justify-between p-3" id="Release1-info">
                   <div>
                     <p class="text-2xl font-bold">In You</p>
                     <p class="text-sm text-white/50">Nova Jay · Single</p>
@@ -277,6 +541,7 @@
               <a
                 href="#"
                 class="block group w-sm border rounded-2xl border-white/10 hover:border-white/30 overflow-hidden bg-white/5"
+                id="Release2"
               >
                 <div class="relative h-100">
                   <img
@@ -285,7 +550,7 @@
                     class="w-full h-full object-cover group-hover:scale-105 transition"
                   />
                 </div>
-                <div class="flex justify-between p-3">
+                <div class="flex justify-between p-3" id="Release2-info">
                   <div class="">
                     <p class="text-2xl font-bold">Woman</p>
                     <p class="text-sm text-white/50">Yung K · EP</p>
@@ -313,6 +578,7 @@
               <a
                 href=""
                 class="block group w-sm rounded-2xl border border-white/10 hover:border-white/30 overflow-hidden bg-white/5"
+                id="Release3"
               >
                 <div class="relative h-100">
                   <img
@@ -321,7 +587,7 @@
                     class="w-full h-full object-cover group-hover:scale-105 transition"
                   />
                 </div>
-                <div class="flex justify-between p-3">
+                <div class="flex justify-between p-3" id="Release3-info">
                   <div>
                     <p class="text-2xl font-bold">City Lights</p>
                     <p class="text-sm text-white/50">Luna K · Single</p>
@@ -356,7 +622,7 @@
                     class="w-full h-full object-cover group-hover:scale-105 transition"
                   />
                 </div>
-                <div class="flex justify-between p-3">
+                <div class="flex justify-between p-3" id="Release4-info">
                   <div>
                     <p class="text-2xl font-bold">Ocean Eyes City</p>
                     <p class="text-sm text-white/50">Mia Blue · Album</p>
@@ -384,8 +650,10 @@
 
     <!-- Listen on Section -->
     <div class="pb-15 border-b border-white/10">
-      <section class="flex gap-8 mt-10 mx-7 mb-5">
-        <div><p class="text-2xl text-white/80">Listen On</p></div>
+      <section class="flex gap-8 mt-10 mx-7 mb-5" id="Listen-on">
+        <div>
+          <p class="text-2xl text-white/80" id="Listen-on-text">Listen On</p>
+        </div>
         <ul
           class="bg-white/20 py-1 px-4 border border-white/40 cursor-pointer hover:border-white/80 transition rounded-full"
         >
@@ -469,12 +737,12 @@
 
     <!-- News section -->
     <section class="mb-40 mt-40">
-      <div class="mt-20 mb-5 mx-7">
+      <div class="mt-20 mb-5 mx-7" id="News">
         <p class="text-5xl font-bold">News & Highlights</p>
         <div class="flex justify-between">
           <p class="text-white/80">Whats happening across Soundwave</p>
 
-          <div>
+          <div class="btns">
             <button
               id="artist-prev"
               class="p-2 rounded-full bg-white/10 hover:bg-white/20"
@@ -508,6 +776,7 @@
       </div>
       <div
         class="no-scrollbar flex gap-5 overflow-x-auto scroll-smooth snap-x snap-mandatory mx-7 mb-20"
+        id="News-highlights"
       >
         <!-- Nova Releases Debut EP -->
         <article
@@ -573,11 +842,11 @@
     </section>
 
     <!-- Upcoming Shows Section -->
-    <section class="border-b-white/10 mb-20 mx-7">
+    <section class="border-b-white/10 mb-20 mx-7" id="Shows">
       <p class="text-5xl font-bold">Upcoming Shows</p>
       <div class="text-white/80 flex justify-between mb-5">
         <p>Catch us live</p>
-        <p>See all dates</p>
+        <p id="See-all-dates">See all dates</p>
       </div>
 
       <!-- TOURS -->
@@ -594,7 +863,9 @@
             </div>
             <div>
               <p class="font-bold">Eko Convention Centre</p>
-              <p class="text-sm text-white/50">Victoria Island, Lagos</p>
+              <p class="text-sm text-white/50" id="Victoria">
+                Victoria Island, Lagos
+              </p>
             </div>
           </div>
 
@@ -623,7 +894,7 @@
             </div>
             <div>
               <p class="font-bold">Accra Sports Stadium</p>
-              <p class="text-sm text-white/50">Accra, Ghana</p>
+              <p class="text-sm text-white/50" id="Accra">Accra, Ghana</p>
             </div>
           </div>
 
@@ -645,7 +916,7 @@
     <!-- ABOUT US SECTION -->
 
     <section class="mx-7">
-      <div class="flex mb-20">
+      <div class="flex mb-20" id="About-us">
         <div class="mt-20 mb-5">
           <p class="text-5xl font-bold">About Us</p>
           <p class="text-white/80">
@@ -661,10 +932,11 @@
             and <br />
             strategic marketing.
           </p>
-          <div class="flex gap-10 mt-5">
+          <div class="flex gap-10 mt-5" id="About-stats">
             <!-- ARTISTS -->
             <div
               class="px-10 rounded-lg text-center py-2 w-40 bg-white/5 border border-white/20"
+              id="stats"
             >
               <p class="text-3xl font-extrabold">25+</p>
               <p class="text-sm text-white/50">Artists</p>
@@ -672,6 +944,7 @@
             <!-- STREAMS -->
             <div
               class="px-10 rounded-lg text-center py-2 w-40 bg-white/5 border border-white/20"
+              id="stats"
             >
               <p class="text-3xl font-extrabold">100M+</p>
               <p class="text-sm text-white/50">Streams</p>
@@ -680,6 +953,7 @@
             <!-- COUNTRIES -->
             <div
               class="px-10 rounded-lg text-center py-2 w-40 bg-white/5 border border-white/20"
+              id="stats"
             >
               <p class="text-3xl font-extrabold">15</p>
               <p class="text-sm text-white/50">Countries</p>
@@ -692,15 +966,17 @@
             src="https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTJ8fG11c2ljfGVufDB8fDB8fHww"
             class="w-full h-72 object-cover rounded-2xl"
             alt="Studio session"
+            id="About-img"
           />
         </div>
       </div>
     </section>
 
     <!-- NEWS LETTER SECTION -->
-    <section class="border-t border-white/10">
+    <section class="">
       <div
         class="flex mx-auto justify-center w-200 gap-8 border border-white/10 rounded-2xl mt-30 mb-20 p-10 items-center"
+        id="Newsletter"
       >
         <div>
           <p class="text-4xl font-bold mb-3">Stay in the loop</p>
@@ -713,10 +989,11 @@
           <input
             type="email"
             placeholder="Enter your email"
+            id="input-space"
             class="w-full p-3 rounded-full bg-black/20 border border-white/20 focus:outline-none focus:border-white/50 placeholder-white/50"
           />
           <button
-            class="bg-white text-black font-bold p-3 cursor-pointer rounded-full hover:bg-gray-200 transition duration-300"
+            class="bg-white text-black font-bold p-3 cursor-pointer rounded-full hover:bg-gray-200 transition duration-300 hover:shadow-md shadow-indigo-700"
           >
             Subscribe
           </button>
@@ -726,7 +1003,7 @@
 
     <!-- FOOTER SECTION -->
     <footer class="border-t border-white/10">
-      <div class="flex justify-between mb-10 mt-20 mx-7">
+      <div class="flex justify-between mb-10 mt-20 mx-7" id="footer">
         <div class="space-y-3">
           <a href="#" class="flex items-center gap-2">
             <span
@@ -750,7 +1027,7 @@
         </div>
 
         <div class="space-y-5">
-          <p class="text-sm text-white/50">LABEL</p>
+          <p class="text-sm text-white/50" id="label">LABEL</p>
           <ul class="text-white/70 text-sm space-y-3">
             <li><a href="#">About</a></li>
             <li><a href="#">Artists</a></li>
@@ -760,7 +1037,7 @@
         </div>
 
         <div class="space-y-5">
-          <p class="text-sm text-white/50">CONNECT</p>
+          <p class="text-sm text-white/50" id="connect">CONNECT</p>
           <ul class="text-white/70 text-sm space-y-3">
             <li><a href="#">Instagram</a></li>
             <li><a href="#">X (Twitter)</a></li>
@@ -770,7 +1047,7 @@
         </div>
 
         <div class="space-y-5">
-          <p class="text-sm text-white/50">CONTACT</p>
+          <p class="text-sm text-white/50" id="contact">CONTACT</p>
           <ul class="text-white/70 text-sm space-y-3">
             <li><a href="#">A&R: anr@soundwave.com</a></li>
             <li><a href="#">Press: press@soundwave.com</a></li>
