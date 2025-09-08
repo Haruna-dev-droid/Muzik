@@ -185,13 +185,16 @@
           display: flex;
           flex-direction: row;
           gap: 10px;
+          text-align: center;
+          align-items: center;
         }
         br {
           display: none;
         }
 
         #stats {
-          width: 31%;
+          width: 50%;
+          padding: 5px 2px;
         }
         #About-img {
           display: none;
@@ -255,8 +258,8 @@
 
         <div>
           <ul class="flex space-x-4">
-            <li><a href="#Newsletter">Newsletter</a></li>
-            <li><a href="#Tour">Tour</a></li>
+            <li><a href="#Newsletter" id="Newsletter-nav">Newsletter</a></li>
+            <li><a href="#Tour" id="Tour-nav">Tour</a></li>
             <li><a href="#Shop">Shop</a></li>
           </ul>
         </div>
@@ -313,10 +316,26 @@
 
         <nav>
           <ul class="flex space-x-12" id="nav-links">
-            <li><a href="#Artist" class="hover:text-brand-600">Artists</a></li>
-            <li><a href="#Music" class="hover:text-brand-600">Music</a></li>
-            <li><a href="#Videos" class="hover:text-brand-600">Videos</a></li>
-            <li><a href="#About" class="hover:text-brand-600">About</a></li>
+            <li>
+              <a href="#Artist" class="hover:text-brand-600" id="Artists-nav"
+                >Artists</a
+              >
+            </li>
+            <li>
+              <a href="#Music" class="hover:text-brand-600" id="Music-nav"
+                >Music</a
+              >
+            </li>
+            <li>
+              <a href="#Videos" class="hover:text-brand-600" id="Videos-nav"
+                >Videos</a
+              >
+            </li>
+            <li>
+              <a href="#About" class="hover:text-brand-600" id="About-nav"
+                >About</a
+              >
+            </li>
           </ul>
         </nav>
         <div class="hidden md:flex items-center gap-3">
@@ -342,7 +361,7 @@
     </header>
 
     <!-- Artist Section -->
-    <section class="mx-7">
+    <section class="mx-7" id="Section--1">
       <p class="mt-15 text-5xl font-bold px-1">Artists</p>
       <div
         class="flex justify-between items-center px-1 mb-5"
@@ -678,7 +697,7 @@
     </div>
 
     <!-- Videos Scetion -->
-    <section class="mt-20 mx-7">
+    <section class="mt-20 mx-7" id="Videos-sec">
       <div class="mb-5">
         <p class="text-5xl font-bold">Videos</p>
         <p class="text-white/80">Latest visuals from our Artists</p>
@@ -915,7 +934,7 @@
 
     <!-- ABOUT US SECTION -->
 
-    <section class="mx-7">
+    <section class="mx-7" id="About-sec">
       <div class="flex mb-20" id="About-us">
         <div class="mt-20 mb-5">
           <p class="text-5xl font-bold">About Us</p>
@@ -975,7 +994,7 @@
     <!-- NEWS LETTER SECTION -->
     <section class="">
       <div
-        class="flex mx-auto justify-center w-200 gap-8 border border-white/10 rounded-2xl mt-30 mb-20 p-10 items-center"
+        class="News--letter flex mx-auto justify-center w-200 gap-8 border border-white/10 rounded-2xl mt-30 mb-20 p-10 items-center"
         id="Newsletter"
       >
         <div>
@@ -1056,5 +1075,6 @@
         </div>
       </div>
     </footer>
+    <script src="script.js"></script>
   </body>
 </html>
