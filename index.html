@@ -76,7 +76,10 @@
           padding: 0;
         }
         #nav-links {
-          display: none;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          opacity: 0;
         }
 
         #Artists {
@@ -290,7 +293,7 @@
           <span class="text-2xl font-bold" id="SoundWave">SOUNDWAVE</span>
 
           <!-- MOBILE HAMBURGER -->
-          <span class="ml-15">
+          <span class="ml-15" id="mobile-menu">
             <button
               class="md:hidden p-2 rounded-lg hover:bg-white/10"
               id="mobile-open"

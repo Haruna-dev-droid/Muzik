@@ -22,3 +22,37 @@ tour.addEventListener("click", () => {
 artist.addEventListener("click", () => {
   sectionOne.scrollIntoView({ behavior: "smooth" });
 });
+
+music.addEventListener("click", () => {
+  releaseSec.scrollIntoView({ behavior: "smooth" });
+});
+
+videos.addEventListener("click", () => {
+  videoSec.scrollIntoView({ behavior: "smooth" });
+});
+
+about.addEventListener("click", () => {
+  aboutSec.scrollIntoView({ behavior: "smooth" });
+});
+
+// MOBILE NAVIGATION
+const mobileNav = document.getElementById("mobile-menu");
+const navLinks = document.getElementById("nav-links");
+
+mobileNav.addEventListener("click", () => {
+  if (navLinks.style.opacity === "0") {
+    navLinks.style.opacity = "1";
+  } else {
+    navLinks.style.opacity = 0;
+  }
+});
+
+// mobileNav.addEventListener("click", () => {
+//   if (navLinks.style.opacity === 0) {
+//     navLinks.style.display = "flex";
+//     navLinks.style.opacity = 1;
+//   } else {
+//     navLinks.style.display = "none";
+//     navLinks.style.opacity = 0;
+//   }
+// });
